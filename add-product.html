@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar Nuevo Producto</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <h2>Agregar Nuevo Producto</h2>
+      <form id="newProductForm">
+        <input type="text" id="newProductName" placeholder="Nombre del producto" required>
+        <input type="text" id="newProductCategory" placeholder="Categoría" required>
+        <input type="number" id="newProductPrice" placeholder="Precio" required>
+        <input type="text" id="newProductDescription" placeholder="Descripción" required>
+        <input type="text" id="newProductImage" placeholder="URL de la imagen" required>
+        <button type="submit">Guardar</button>
+        <button type="button" id="cancelButton">Cancelar</button>
+      </form>
+    </div>
+    <script type="module" src="/add-product.js"></script>
+  </body>
+</html>

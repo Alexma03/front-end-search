@@ -1,9 +1,11 @@
 import "./style.css";
 
-let products = [];
+let products = JSON.parse(localStorage.getItem("products")) || [];
 const productList = document.getElementById("productList");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
+const addProductButton = document.getElementById("addProductButton");
+const productForm = document.getElementById("productForm");
 
 // Función para obtener productos de la API
 async function fetchProducts() {
@@ -114,6 +116,8 @@ categoryFilter.addEventListener("change", applyFilters);
 
 // Renderizar productos iniciales
 fetchProducts();
+renderProducts();
+populateCategoryFilter();
 
 // Manejar navegación
 window.addEventListener("popstate", () => {
