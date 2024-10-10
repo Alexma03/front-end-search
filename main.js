@@ -1,11 +1,10 @@
 import "./style.css";
+import { navigateTo } from "./router.js";
 
 let products = JSON.parse(localStorage.getItem("products")) || [];
 const productList = document.getElementById("productList");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
-const addProductButton = document.getElementById("addProductButton");
-const productForm = document.getElementById("productForm");
 
 // Función para obtener productos de la API
 async function fetchProducts() {
@@ -27,12 +26,12 @@ async function fetchProducts() {
   }
 }
 
-// Función para renderizar productos en estilo bento
-function renderProducts() {
+// Función para renderizar productos en un grid normal
+export function renderProducts() {
   productList.innerHTML = "";
-  products.forEach((product, index) => {
+  products.forEach((product) => {
     const productCard = document.createElement("div");
-    productCard.className = `product-card ${index === 0 ? "featured" : ""}`;
+    productCard.className = "product-card";
     productCard.innerHTML = `
       <img src="${product.img}" alt="${product.nombre}">
       <div class="product-info">
@@ -40,28 +39,10 @@ function renderProducts() {
         <p class="category">${product.categoria}</p>
         <p class="price">$${product.precio.toFixed(2)}</p>
         <p class="description">${product.descripcion}</p>
-      </div>
+      </div> 
     `;
-    productCard.addEventListener("click", () => showProductDetails(product));
     productList.appendChild(productCard);
   });
-}
-
-// Función para mostrar detalles del producto
-function showProductDetails(product) {
-  const detailsHTML = `
-    <div class="product-details">
-      <img src="${product.img}" alt="${product.nombre}">
-      <div class="details-info">
-        <h2>${product.nombre}</h2>
-        <p class="category">${product.categoria}</p>
-        <p class="price">$${product.precio.toFixed(2)}</p>
-        <p class="description">${product.descripcion}</p>
-        <button onclick="window.history.back()">Volver</button>
-      </div>
-    </div>
-  `;
-  document.body.innerHTML = detailsHTML;
 }
 
 // Función para aplicar filtros
@@ -81,9 +62,9 @@ function applyFilters() {
 // Función para renderizar productos filtrados
 function renderFilteredProducts(filteredProducts) {
   productList.innerHTML = "";
-  filteredProducts.forEach((product, index) => {
+  filteredProducts.forEach((product) => {
     const productCard = document.createElement("div");
-    productCard.className = `product-card ${index === 0 ? "featured" : ""}`;
+    productCard.className = "product-card";
     productCard.innerHTML = `
       <img src="${product.img}" alt="${product.nombre}">
       <div class="product-info">
@@ -118,9 +99,3 @@ categoryFilter.addEventListener("change", applyFilters);
 fetchProducts();
 renderProducts();
 populateCategoryFilter();
-
-// Manejar navegación
-window.addEventListener("popstate", () => {
-  document.body.innerHTML = document.getElementById("app").outerHTML;
-  renderProducts();
-});

@@ -1,3 +1,5 @@
+import { navigateTo } from "./router.js";
+
 const newProductForm = document.getElementById("newProductForm");
 const cancelButton = document.getElementById("cancelButton");
 
@@ -26,7 +28,7 @@ newProductForm.addEventListener("submit", async (event) => {
     }
 
     // Redirigir de vuelta a la página principal
-    window.location.href = "index.html";
+    navigateTo("/index.html");
   } catch (error) {
     console.error("Error:", error);
     alert("Hubo un error al guardar el producto. Por favor, inténtalo de nuevo.");
@@ -35,5 +37,5 @@ newProductForm.addEventListener("submit", async (event) => {
 
 // Manejar la cancelación del formulario
 cancelButton.addEventListener("click", () => {
-  window.location.href = "index.html";
+  navigateTo("/index.html");
 });

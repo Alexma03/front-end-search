@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catálogo de Productos - Diseño Bento</title>
+    <title>Catálogo de Productos</title>
   </head>
   <body>
     <div id="app">
@@ -14,10 +14,11 @@
         <select id="categoryFilter" title="Filtrar por categoría">
           <option value="">Todas las categorías</option>
         </select>
-        <a href="add-product.html"><button id="addProductButton">Agregar Producto</button></a>
+        <button id="addProductButton" onclick="navigateTo('/add-product.html')">Agregar Producto</button>
       </div>
       <div id="productList"></div>
     </div>
+    <script type="module" src="/router.js"></script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
