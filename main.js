@@ -8,7 +8,7 @@ const categoryFilter = document.getElementById("categoryFilter");
 // Función para obtener productos de la API
 async function fetchProducts() {
   try {
-    const response = await fetch("/api/products/get-products");
+    const response = await fetch("https://api-search-products-d92dad668ba2.herokuapp.com/products/get-products");
     const data = await response.json();
     console.log("API Response:", data); // Log para verificar la respuesta de la API
 
