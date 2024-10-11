@@ -1,5 +1,4 @@
 import "./style.css";
-import { navigateTo } from "./router.js";
 
 let products = JSON.parse(localStorage.getItem("products")) || [];
 const productList = document.getElementById("productList");
@@ -74,7 +73,6 @@ function renderFilteredProducts(filteredProducts) {
         <p class="description">${product.descripcion}</p>
       </div>
     `;
-    productCard.addEventListener("click", () => showProductDetails(product));
     productList.appendChild(productCard);
   });
 }
