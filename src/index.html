@@ -16,6 +16,22 @@
         </select>
       </div>
       <div id="productList"></div>
+      <div id="addProductForm">
+        <h2>Añadir Producto</h2>
+        <form id="productForm" class="horizontal-form">
+          <label for="productName">Nombre del Producto:</label>
+          <input type="text" id="productName" name="productName" required>
+          <label for="productCategory">Categoría:</label>
+          <input type="text" id="productCategory" name="productCategory" required>
+          <label for="productPrice">Precio:</label>
+          <input type="number" id="productPrice" name="productPrice" required>
+          <label for="productDescription">Descripción:</label>
+          <textarea id="productDescription" name="productDescription" required></textarea>
+          <label for="productImg">URL de la Imagen:</label>
+          <input type="text" id="productImg" name="productImg" required>
+          <button type="submit">Añadir Producto</button>
+        </form>
+      </div>
     </div>
     <script type="module" src="main.js"></script>
   </body>
