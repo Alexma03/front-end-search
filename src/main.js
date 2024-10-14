@@ -1,5 +1,5 @@
 import "./styles/style.css";
-import { fetchProducts } from "./utils/api.js";
+import { fetchProducts } from "./utils/fetchProducts.js";
 import { setupFilters } from "./components/Filters.js";
 import { renderProducts } from "./components/ProductList.js";
 import { setupAddProductForm } from "./controllers/AddProductController.js";

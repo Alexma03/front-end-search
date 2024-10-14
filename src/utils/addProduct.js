@@ -1,7 +1,7 @@
 export async function addProduct(productData) {
   try {
     const response = await fetch(
-      "http://localhost:8080/products/add-product",
+      "https://api-search-products-d92dad668ba2.herokuapp.com/products/add-product",
       {
         method: "POST",
         headers: {
@@ -10,7 +10,7 @@ export async function addProduct(productData) {
         body: JSON.stringify(productData),
       }
     );
-    return response.status;
+    return response;
   } catch (error) {
     console.error("Error adding product:", error);
     alert("Error al agregar el producto. Por favor, inténtalo de nuevo.");

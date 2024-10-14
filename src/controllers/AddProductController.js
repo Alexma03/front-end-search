@@ -22,10 +22,13 @@ export function setupAddProductForm() {
 
     try {
       const response = await addProduct(productData);
-      if (response === 200) {
+      if (response.status === 200) {
         // Redirigir a la página principal o actualizar la lista de productos
         alert("Producto añadido exitosamente a la base de datos.");
         window.location.href = "/";
+      } else if (response.status === 500) {
+        // Mostrar un mensaje de error al usuario
+        alert("Por favor compruebe que no exista un producto con el mismo nombre.");
       } else {
         // Manejar errores de la API
         console.error("Error al añadir el producto:", response);
